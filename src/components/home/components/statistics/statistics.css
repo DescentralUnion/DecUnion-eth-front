@@ -1,0 +1,7 @@
+.statisticsWrapper {
+  border: 1px solid var(--main-color);
+  padding: 15px;
+  border-radius: 3px;
+  width: 400px;
+  color: var(--main-color);
+}
