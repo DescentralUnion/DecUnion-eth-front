@@ -4,6 +4,11 @@
   justify-content: space-between;
 }
 
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .panelWrapper {
   background-color: #171819;
 }
