@@ -1,6 +1,6 @@
 :root {
   --main-bg-color: #020502;
-  --main-color: #befac7;
+  --main-color: #fd0;
 }
 .App {
   background-color: var(--main-bg-color);
