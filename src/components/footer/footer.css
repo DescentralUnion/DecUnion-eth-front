@@ -1,0 +1,12 @@
+.footerWrapper {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.highlight {
+    color: var(--main-color);
+    cursor: pointer;
+}

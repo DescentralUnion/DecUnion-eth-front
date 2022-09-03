@@ -1,35 +1,38 @@
-import { BigNumber, ethers } from 'ethers'
-import React, { Dispatch, SetStateAction } from 'react'
+import { BigNumber, ethers } from "ethers"
+import React, { Dispatch, SetStateAction } from "react"
 
 interface ConnectWalletProps {
-    setIsConnected: (value: boolean) => void
-    setWalletAddress: (value: string) => void
-    setWalletBalance: (value: string) => void
+  setWalletAddress: (value: string) => void
+  setWalletBalance: (value: string) => void
 }
 
-const ConnectWallet = ({setIsConnected, setWalletAddress, setWalletBalance}: ConnectWalletProps) => {
-
+const ConnectWallet = ({
+  setWalletAddress,
+  setWalletBalance,
+}: ConnectWalletProps) => {
   return (
     <div>
-        ConnectWallet
-        <br/>
-        <button onClick={async () => {
+      ConnectWallet
+      <br />
+      <button
+        onClick={async () => {
           if (window.ethereum) {
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            await provider.send("eth_requestAccounts", []);
+            const provider = new ethers.providers.Web3Provider(window.ethereum)
+            await provider.send("eth_requestAccounts", [])
             const signer = provider.getSigner()
-            console.log("here:" + await signer.getAddress())
+            console.log("here:" + (await signer.getAddress()))
             await signer.signMessage("Torbellino Ca$h")
-            setIsConnected(true)
             setWalletAddress(await signer.getAddress())
-            const balance = await (await signer.getBalance())
-            const newBalance = Number(balance)/1000000000000000000
+            const balance = await await signer.getBalance()
+            const newBalance = Number(balance) / 1000000000000000000
             setWalletBalance(newBalance.toString())
-          }
-          else {
+          } else {
             alert("Install Metamask please")
           }
-        }}>Conectar</button>
+        }}
+      >
+        Conectar
+      </button>
     </div>
   )
 }
