@@ -1,22 +1,47 @@
-import React, { useState } from "react"
-import logo from "./logo.svg"
+import { useEffect, useState } from "react"
 import "./App.css"
 import Home from "./components/home/Home"
 import ConnectWallet from "./components/connectWallet/ConnectWallet"
-import { BigNumber } from "ethers"
+import { ethers } from "ethers"
+import Footer from "./components/footer/Footer"
 
 function App() {
-  const [isConnected, setIsConnected] = useState<boolean>(false)
-  const [walletAddress, setWalletAddress] = useState<string>('')
-  const [walletBalance, setWalletBalance] = useState<string>('')
-  
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [walletAddress, setWalletAddress] = useState<string>("")
+  const [walletBalance, setWalletBalance] = useState<string>("")
+
+  useEffect(() => {
+    const isConnected = async () => {
+      if (window.ethereum) {
+        setIsLoading(true)
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        await provider.send("eth_requestAccounts", [])
+        const signer = provider.getSigner()
+
+        setWalletAddress(await signer.getAddress())
+
+        const balance = await signer.getBalance()
+        const newBalance = Number(balance) / 1000000000000000000
+        setWalletBalance(newBalance.toString())
+        setIsLoading(false)
+      }
+    }
+    isConnected()
+  }, [])
+
   return (
     <div className="App">
-      {walletAddress != '' ? (
-        <Home walletAddress={walletAddress} walletBalance={walletBalance} />
-      ) : (
-        <ConnectWallet setIsConnected={setIsConnected} setWalletAddress={setWalletAddress} setWalletBalance={setWalletBalance} />
-      )}
+      {!isLoading &&
+        (walletAddress !== "" ? (
+          <Home walletAddress={walletAddress} walletBalance={walletBalance} />
+        ) : (
+          <ConnectWallet
+            setWalletAddress={setWalletAddress}
+            setWalletBalance={setWalletBalance}
+          />
+        ))}
+
+      <Footer/>
     </div>
   )
 }

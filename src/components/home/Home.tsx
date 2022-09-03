@@ -12,12 +12,20 @@ interface HomeProps {
 const Home = ({walletAddress, walletBalance}: HomeProps) => {
   const [showDeposit, setShowDeposit] = useState<boolean>(true)
 
+  const formatWallet = (address: string) => {
+    let start = address.substring(0, 5)
+    let end = address.slice(-4)
+  
+    return start + "..." + end
+  }
+  
+
   return (
     <div className="homeWrapper">
       <div className="panelWrapper">
         <div className="infoWrapper">
-          {walletAddress != '' ? <span>{walletAddress}</span> : null}
-          {walletBalance != undefined ?  <span>{walletBalance}</span> : null}
+          {walletAddress != '' ? <span>{formatWallet(walletAddress)}</span> : null}
+          {walletBalance != undefined ?  <span>{walletBalance.slice(0, 8)}</span> : null}
         </div>
         <div className="selectorWrapper">
           <span className={`selectorButton ${!showDeposit ? "selectorButton-opacity" : ""}`} onClick={() => setShowDeposit(true)}>Deposit</span>
