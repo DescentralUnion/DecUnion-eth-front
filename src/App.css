@@ -1,7 +1,9 @@
 :root {
   --main-bg-color: #020502;
   --main-color: #fd0;
+  --secondary-bg-color: #171819;
 }
+
 .App {
   background-color: var(--main-bg-color);
   min-height: 100vh;

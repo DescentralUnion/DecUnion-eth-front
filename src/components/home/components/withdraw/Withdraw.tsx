@@ -1,27 +1,33 @@
 import React from "react"
+import "./withdraw.css"
 
 const Withdraw = () => {
   return (
-    <div>
+    <div className="withdrawWrapper">
       <div>
-        <h4>Note</h4>
-        <input type="text" />
-        <div>Note value is 0.1 ETH</div>
-        <div>It's been 2 days after deposit</div>
+        <h4 className="titleWithdrawWrapper">Note</h4>
+        <input placeholder="torbellino.eth-0.0.1-0x00000000" className="withdrawTextInput" type="text" />
+        <div className="withdrawDescription">Note value is 0.1 ETH</div>
+        <div className="withdrawDescription">
+          It's been 2 days after deposit
+        </div>
       </div>
-      <hr />
+
+      <div className="widthdrawSeparator"></div>
+
       <div>
-        <h4>Make a withdrawal</h4>
+        <h4 className="titleWithdrawWrapper">Make a withdrawal</h4>
         <div>
-          <div>
-            <h4>Wallet address</h4>
-            <h4>Gas fee: 0.01 ETH</h4>
+          <div className="withdrawDescription">
+            <div>Wallet address</div>
+            <div>Gas fee: 0.01 ETH</div>
           </div>
-          <input type="text" />
+          <br/>
+          <input placeholder="0x000000000000000000" className="withdrawTextInput" type="text" />
         </div>
 
-        <div>Note value is 0.1 ETH</div>
-        <button>Withdraw</button>
+        <div className="withdrawNoteValue">Note value is 0.1 ETH</div>
+        <button className="depositButton">Withdraw</button>
       </div>
     </div>
   )

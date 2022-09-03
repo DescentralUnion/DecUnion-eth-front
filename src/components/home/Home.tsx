@@ -25,7 +25,7 @@ const Home = ({walletAddress, walletBalance}: HomeProps) => {
       <div className="panelWrapper">
         <div className="infoWrapper">
           {walletAddress != '' ? <span>{formatWallet(walletAddress)}</span> : null}
-          {walletBalance != undefined ?  <span>{walletBalance.slice(0, 8)}</span> : null}
+          {walletBalance != undefined ?  <span>{walletBalance.slice(0, 8)+ " ETH"}</span> : null}
         </div>
         <div className="selectorWrapper">
           <span className={`selectorButton ${!showDeposit ? "selectorButton-opacity" : ""}`} onClick={() => setShowDeposit(true)}>Deposit</span>
