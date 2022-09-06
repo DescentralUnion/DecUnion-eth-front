@@ -67,9 +67,6 @@ const Home = ({ walletAddress, walletBalance }: HomeProps) => {
           {walletAddress !== "" ? (
             <span>{formatWallet(walletAddress)}</span>
           ) : null}
-          {walletBalance !== undefined ? (
-            <span>{walletBalance.slice(0, 8) + " ETH"}</span>
-          ) : null}
         </div>
         <div className="selectorWrapper">
           <span
