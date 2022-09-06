@@ -22,8 +22,8 @@
 
 .widthdrawSeparator {
     border-top: 1px solid #333;
-    margin-top: 25px;
-    margin-bottom: 20px;
+    /* margin-top: 25px; */
+    margin-bottom: 10px;
 }
 
 .withdrawTextInput:focus{

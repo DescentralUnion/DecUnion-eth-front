@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { SC_ADDRESS } from "../../web3/Constants"
 import "./footer.css"
 
 const Footer = () => {
@@ -21,7 +22,7 @@ const Footer = () => {
       <span>
         Mixer contract:
         <span className="highlight">
-          {" 0x0000000000000000000000000000000000000000"}
+          {` ${SC_ADDRESS}`}
         </span>
       </span>
     </div>

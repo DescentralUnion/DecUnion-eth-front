@@ -15,6 +15,7 @@
 
 .panelWrapper {
   background-color: #171819;
+  width: fit-content;
 }
 
 .selectorWrapper {

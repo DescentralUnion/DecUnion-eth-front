@@ -4,6 +4,9 @@ import Home from "./components/home/Home"
 import ConnectWallet from "./components/connectWallet/ConnectWallet"
 import { ethers } from "ethers"
 import Footer from "./components/footer/Footer"
+import { SC_ADDRESS } from "./web3/Constants"
+import { ContractManager } from "./helpers/ContractManager"
+import ABI from "./web3/abi.json"
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -40,8 +43,7 @@ function App() {
             setWalletBalance={setWalletBalance}
           />
         ))}
-
-      <Footer/>
+      <Footer />
     </div>
   )
 }

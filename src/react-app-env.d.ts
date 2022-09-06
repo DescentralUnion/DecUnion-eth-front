@@ -6,3 +6,8 @@ declare global {
     ethereum?: ExternalProvider
   }
 }
+
+interface depositData {
+  note: string, 
+  txHash: string
+}

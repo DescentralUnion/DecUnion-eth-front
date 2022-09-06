@@ -1,5 +1,4 @@
-import { BigNumber, ethers } from "ethers"
-import React, { Dispatch, SetStateAction } from "react"
+import { ethers } from "ethers"
 
 interface ConnectWalletProps {
   setWalletAddress: (value: string) => void

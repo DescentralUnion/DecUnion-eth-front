@@ -1,0 +1,1 @@
+export const SC_ADDRESS = "0xd3c0118e6BDf09cfbcD150A82E5823ABb4B4Ab58"
